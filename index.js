@@ -9,7 +9,14 @@ const app = express();
 dotenv.config();
 const port = process.env.PORT;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://simple-react-app-4nnp.onrender.com",
+    ],
+  })
+);
 
 mongoose.connect(process.env.CONNECTION_URL, {
   useNewUrlParser: true,
